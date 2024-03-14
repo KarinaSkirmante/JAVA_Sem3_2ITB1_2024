@@ -7,7 +7,7 @@ public abstract class User extends GuestUser implements IPostService {
 	private String username;
 	//TODO uztaisit enkodesanu, piemeram ar MD5
 	private String password;
-	private String nameAndSurnameOrTitle;
+	protected String nameAndSurnameOrTitle;
 	
 	
 	//2. get and set
