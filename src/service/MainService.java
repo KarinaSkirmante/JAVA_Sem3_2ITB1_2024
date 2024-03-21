@@ -101,6 +101,11 @@ public class MainService {
 			e.printStackTrace();
 		}
 		
+		
+		if(u7.registeredUserService.login("kkarina", "123"))
+		{
+			u7.registeredUserService.followPage(u7.getUsername(), "Hesburgers Ventspils")
+		}
 	}
 
 }

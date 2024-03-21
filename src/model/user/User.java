@@ -3,12 +3,15 @@ package model.user;
 import java.security.MessageDigest;
 
 import service.IPostService;
+import service.impl.UserServiceImpl;
 
 public abstract class User extends GuestUser implements IPostService {
 	// 1.variables
 	private String username;
 	private String password;
 	protected String nameAndSurnameOrTitle;
+	
+	public UserServiceImpl registeredUserService = new UserServiceImpl();
 
 	// 2. get and set
 	public String getUsername() {
