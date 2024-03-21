@@ -30,7 +30,7 @@ public class BusinessUser extends User {
 	
 	@Override
 	public void setNameAndSurnameOrTitle(String nameAndSurnameOrTitle) {
-		if(nameAndSurnameOrTitle != null && nameAndSurnameOrTitle.matches("[A-Za-z0-9%&+@=.,!]{3,50}"))
+		if(nameAndSurnameOrTitle != null && nameAndSurnameOrTitle.matches("[A-Za-z0-9%&+@=.,! ]{3,50}"))
 			super.nameAndSurnameOrTitle = nameAndSurnameOrTitle;
 		else
 			super.nameAndSurnameOrTitle = "----------";

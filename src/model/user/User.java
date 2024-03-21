@@ -16,7 +16,7 @@ public abstract class User extends GuestUser implements IPostService {
 	}
 
 	public void setUsername() {
-		this.username = nameAndSurnameOrTitle + "_" + getUserID();
+		this.username = nameAndSurnameOrTitle.toLowerCase().replace(" ", "") + "_" + getUserID();
 	}
 
 	public String getPassword() {
