@@ -3,6 +3,7 @@ package service;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import model.Page;
 import model.Post;
 import model.PostType;
 import model.user.BusinessUser;
@@ -50,6 +51,32 @@ public class MainService {
 		
 		System.out.println(u6.getUsername() + ": followers ->");
 		System.out.println(u6.getFollowers());
+		
+		
+		try {
+			u7.createPage("Hesburgers Ventspils", "Jaunumi par Hesburgeru Ventspilī");
+			u7.createPage("Hesburgers Daugavpils", "Jaunumi par Hesburgeru Daugavpilī");
+			
+			u7.publishPostInPage("Hesburgers Ventspils", "20% atlaide visiem siera burgeriem Ventspilī");
+			u7.publishPostInPage("Hesburgers Ventspils", "50% atlaide visiem bērna komplektiem Ventspilī");
+			u7.publishPostInPage("Hesburgers Daugavpils", "10% atlaide fri");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("---------------------------------------");
+		System.out.println(u7.getUsername() + ": pages ->");
+		for(Page tempP: u7.getListOfPages())
+		{
+			System.out.println(tempP + " -->");
+			System.out.println(tempP.getPostsInPage());
+			System.out.println();
+		}
+		
+		
+		
+		
+		
 		
 		
 		

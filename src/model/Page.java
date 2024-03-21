@@ -46,6 +46,11 @@ public class Page {
 	}
 		
 	
+	public Page(String title, String description) {
+		setTitle(title);
+		setDescription(description);
+	}
+	
 	//4. toString
 	public String toString() {
 		return title + "(" + description + ") ->" + followers.size() + "followers";

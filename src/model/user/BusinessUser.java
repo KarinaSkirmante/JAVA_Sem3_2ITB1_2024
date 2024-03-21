@@ -3,11 +3,12 @@ package model.user;
 import java.util.ArrayList;
 
 import model.Page;
+import model.Post;
 import model.PostType;
 
 public class BusinessUser extends User {
 
-	//1. variables
+	//1. variablespublishPost
 	private String PVNNo;//example: LV40003245752
 	private ArrayList<Page> listOfPages = new ArrayList<Page>();
 	
@@ -67,9 +68,39 @@ public class BusinessUser extends User {
 	
 	//5. other functions
 	
+	public void createPage(String title, String description) throws Exception{
+		//TODO ievades parametrus pārbaudam uz not null
+		for(Page tempP: listOfPages) {
+			if(tempP.getTitle().equals(title)) {
+				throw new Exception("Page already exists");
+			}
+		}
+
+		listOfPages.add(new Page(title, description));
+	}
+	
+	
+	public void publishPostInPage(String pageTitle, String msg) throws Exception {
+		//TODO ievades parametrus pārbaudam uz not null
+				for(Page tempP: listOfPages) {
+					if(tempP.getTitle().equals(pageTitle)) {
+						Post newPost = publishPost(PostType.publicPost, msg);
+						tempP.getPostsInPage().add(newPost);
+						return;
+					}
+				}
+				
+				throw new Exception("Page not found");
+				
+				
+	}
+	
+	
 	@Override
-	public void publishPost(PostType type, String msg) throws Exception {
-		// TODO Auto-generated method stub
+	public Post publishPost(PostType type, String msg) throws Exception {
+		//TODO ievades parametrus pārbaudam uz not null
+		Post newPost = new Post(msg);
+		return newPost;
 		
 	}
 

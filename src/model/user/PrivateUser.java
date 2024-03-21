@@ -63,7 +63,7 @@ nameAndSurnameOrTitle.matches("[A-ZĒŪĪĻĶĢŠĀČŅ]{1}[a-zēūīļķģšā�
 	
 	
 	@Override
-	public void publishPost(PostType type, String msg) throws Exception{
+	public Post publishPost(PostType type, String msg) throws Exception{
 		// veic pārbaudi uz not null abiem input mainīgajiem un izmet izņēmumu
 		if(type == null || msg ==  null) throw new Exception("Problems with input params");
 		
@@ -76,7 +76,7 @@ nameAndSurnameOrTitle.matches("[A-ZĒŪĪĻĶĢŠĀČŅ]{1}[a-zēūīļķģšā�
 		//ja type ir public, tad izveidoto Post objektu ieliek zem publicPosts
 		else if(type.equals(PostType.publicPost)) publicPosts.add(newPost);
 			
-
+		return newPost;
 		
 	}
 
