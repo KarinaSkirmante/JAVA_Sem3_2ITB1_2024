@@ -16,6 +16,7 @@ public class BusinessUser extends User {
 		return PVNNo;
 	}
 
+	//TODO uztaisīt pašiem algorimtu, kas izveido PVNNo
 	public void setPVNNo(String pVNNo) {
 		if(pVNNo != null && pVNNo.matches("[A-Z]{2}[0-9]{11}"))
 			this.PVNNo = pVNNo;
@@ -38,8 +39,31 @@ public class BusinessUser extends User {
 	
 	
 	//3. constructors
+	public BusinessUser() {
+		super(); //tiek izsaukts User() bezargs konstruktors
+		setNameAndSurnameOrTitle("AutoServiss");
+		setUsername();
+		setPVNNo("LV40003245752");
+	}
+	
+	
+	public BusinessUser(String title, String password, String PVNNo) {
+		super(password);
+		setNameAndSurnameOrTitle(title);
+		setUsername();
+		setPVNNo(PVNNo);
+		
+	}
+	
 	
 	//4. toString
+	public String toString() {
+		return super.toString() + " " + PVNNo;
+	}
+	
+	
+	
+	
 	
 	//5. other functions
 	

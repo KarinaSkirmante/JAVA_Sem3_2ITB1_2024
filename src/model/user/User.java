@@ -7,7 +7,6 @@ import service.IPostService;
 public abstract class User extends GuestUser implements IPostService {
 	// 1.variables
 	private String username;
-	// TODO uztaisit enkodesanu, piemeram ar MD5
 	private String password;
 	protected String nameAndSurnameOrTitle;
 
@@ -59,7 +58,7 @@ public abstract class User extends GuestUser implements IPostService {
 	// 4. toString
 
 	public String toString() {
-		return super.toString() + ":";
+		return super.toString() + ":" + nameAndSurnameOrTitle + "(" + username+ ")";
 	}
 
 	// 5. other functions
