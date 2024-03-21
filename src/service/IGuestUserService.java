@@ -8,6 +8,6 @@ import model.user.User;
 
 public interface IGuestUserService {
 	public abstract ArrayList<User> findUsers(String nameOrSurnameOrTitle) throws Exception;
-	public abstract ArrayList<Page> findPages(String titleOrDescription);
+	public abstract ArrayList<Page> findPages(String titleOrDescription) throws Exception;
 	public abstract ArrayList<Post> findInfoInPublicPosts(String msg);
 }

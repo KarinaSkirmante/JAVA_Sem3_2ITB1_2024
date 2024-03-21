@@ -55,6 +55,7 @@ public class MainService {
 		try {
 			u7.createPage("Hesburgers Ventspils", "Jaunumi par Hesburgeru Ventspilī");
 			u7.createPage("Hesburgers Daugavpils", "Jaunumi par Hesburgeru Daugavpilī");
+			u5.createPage("Autoserviss Ventspils Filiāle", "Nāc pie mums labot savu auto! Jaunumi");
 			
 			u7.publishPostInPage("Hesburgers Ventspils", "20% atlaide visiem siera burgeriem Ventspilī");
 			u7.publishPostInPage("Hesburgers Ventspils", "50% atlaide visiem bērna komplektiem Ventspilī");
@@ -72,7 +73,7 @@ public class MainService {
 			System.out.println();
 		}
 		
-		System.out.println("Search->");
+		System.out.println("Search users->");
 		try {
 			System.out.println(u1 + "->" +u1.service.findUsers("Hesb"));
 			System.out.println(u6 + "->" +u6.service.findUsers("Hesb"));
@@ -82,7 +83,13 @@ public class MainService {
 			e.printStackTrace();
 		}
 		
-		
+		System.out.println("Search pages->");
+		try {
+			System.out.println(u5 + "->" +u5.service.findPages("hes"));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 		
