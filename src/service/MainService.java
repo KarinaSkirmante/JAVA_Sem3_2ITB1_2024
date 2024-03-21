@@ -104,7 +104,7 @@ public class MainService {
 		
 		if(u7.registeredUserService.login("kkarina", "123"))
 		{
-			u7.registeredUserService.followPage(u7.getUsername(), "Hesburgers Ventspils")
+			u7.registeredUserService.followPage(u7.getUsername(), "Hesburgers Ventspils");
 		}
 	}
 
