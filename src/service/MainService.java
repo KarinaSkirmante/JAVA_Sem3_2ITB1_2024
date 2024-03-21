@@ -91,8 +91,15 @@ public class MainService {
 			e.printStackTrace();
 		}
 		
-		
-		
+		System.out.println("Search posts->");
+		try {
+			System.out.println(u5 + "->" +u5.service.findInfoInPublicPosts("atlaide"));
+			System.out.println(u5 + "->" +u5.service.findInfoInPublicPosts("nepatīk"));
+			System.out.println(u5 + "->" +u5.service.findInfoInPublicPosts("man"));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 

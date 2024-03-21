@@ -56,9 +56,48 @@ public class GuestUserServiceImpl implements IGuestUserService{
 	}
 
 	@Override
-	public ArrayList<Post> findInfoInPublicPosts(String msg) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Post> findInfoInPublicPosts(String msg) throws Exception {
+		if(msg == null || msg.length() < 2)
+			throw new Exception("Problems with input arg");
+		
+		ArrayList<Post> foundPosts = new ArrayList<Post>();
+		
+		//TODO 
+		//iet cauri visiem lietotajiem
+		for(GuestUser tempU: MainService.allUsers)
+		{
+			//ja lietotajs ir private - iet cauri visiem šī lieottaja public sludinājumiem un meklēt katrā
+			if(tempU instanceof PrivateUser) {
+				PrivateUser user = (PrivateUser)tempU;
+				for(Post tempP: user.getPublicPosts())
+				{
+					if(tempP.getMsg().toLowerCase().contains(msg.toLowerCase())) {
+						foundPosts.add(tempP);
+					}
+				}
+			}
+			//ja lietotajs ir public - iet cauri visām lapām un katra lapā iet cauri visiem sludinājumiem
+			else if(tempU instanceof BusinessUser) {
+				BusinessUser user = (BusinessUser)tempU;
+				for(Page tempPage: user.getListOfPages()) {
+					for(Post tempP : tempPage.getPostsInPage()) {
+						if(tempP.getMsg().toLowerCase().contains(msg.toLowerCase())) {
+							foundPosts.add(tempP);
+						}
+					}
+				}
+				
+			}
+			
+			
+		}
+		
+			
+		
+		
+		
+		
+		return foundPosts;
 	}
 
 }
