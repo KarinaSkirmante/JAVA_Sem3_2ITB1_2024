@@ -12,8 +12,7 @@ import model.user.PrivateUser;
 
 public class MainService {
 
-	//TODO mainīt pieejamības līmeni
-	private static ArrayList<GuestUser> allUsers = new ArrayList<GuestUser>();
+	public static ArrayList<GuestUser> allUsers = new ArrayList<GuestUser>();
 	
 	public static void main(String[] args) {
 		GuestUser u1 = new GuestUser();
@@ -23,8 +22,8 @@ public class MainService {
 		BusinessUser u5 = new BusinessUser();
 		PrivateUser u6 = new PrivateUser("Karina", "Šķirmante", "123456Ka");
 		BusinessUser u7  = new BusinessUser("SIA Hesburger", "12345678He", "LV12345678909");
-		
-		allUsers.addAll(Arrays.asList(u1, u2, u3, u4, u5, u6, u7));
+		PrivateUser u8 = new PrivateUser("Hesburger", "Ēdājs", "123456Ka");
+		allUsers.addAll(Arrays.asList(u1, u2, u3, u4, u5, u6, u7, u8));
 		
 		for(GuestUser tempU : allUsers) {
 			System.out.println(tempU);
@@ -73,7 +72,15 @@ public class MainService {
 			System.out.println();
 		}
 		
-		
+		System.out.println("Search->");
+		try {
+			System.out.println(u1 + "->" +u1.service.findUsers("Hesb"));
+			System.out.println(u6 + "->" +u6.service.findUsers("Hesb"));
+			System.out.println(u5 + "->" +u5.service.findUsers("ka"));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 		
